@@ -8,3 +8,8 @@
     @apply font-sans antialiased;
   }
 }
+
+/* Toast z-index fix */
+.Vue-Toastification__container {
+  z-index: 9999 !important;
+}
