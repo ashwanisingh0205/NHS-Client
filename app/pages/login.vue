@@ -3,7 +3,6 @@ import hospitalImage from '~/assets/images/hospital.jpg'
 
 definePageMeta({
   layout: false,
-  middleware: 'guest' // Redirect to home if already logged in
 })
 
 // Form state
