@@ -7,12 +7,6 @@ export const formatDate = (date, locale = 'en-US') => {
     })
   }
   
-  export const formatCurrency = (amount, currency = 'USD') => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency,
-    }).format(amount)
-  }
   
   export const truncate = (text, length = 100) => {
     if (text.length <= length) return text
