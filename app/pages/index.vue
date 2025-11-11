@@ -1,7 +1,11 @@
 <!-- pages/index.vue -->
 <template>
   <div class="container mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold mb-6 text-gray-900 dark:text-white">Welcome to My App</h1>
+    <!-- Theme Toggle Button -->
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white">Welcome to My App</h1>
+      
+    </div>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div
@@ -11,9 +15,9 @@
       >
         <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{{ item.title }}</h2>
         <p class="text-gray-600 dark:text-gray-400 mb-4">{{ item.description }}</p>
-        <UiButton @click="handleItemClick(item)">
-          View Details
-        </UiButton>
+<NXTButton leading-icon="lucide:user" trailing-icon="lucide:arrow-right" to="/login">
+  View Details
+</NXTButton>
       </div>
     </div>
     
@@ -37,6 +41,22 @@ useSeoMeta({
   ogTitle: 'Home - My App',
   ogDescription: 'Welcome to my professional Nuxt application',
 })
+
+// Theme management using VueUse
+const colorMode = useColorMode()
+
+// Toggle between light and dark theme
+const toggleTheme = () => {
+  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+}
+
+// Click handler that returns a Promise for auto-loading
+async function onClick() {
+  // Simulate async operation (e.g., API call, navigation)
+  await new Promise(resolve => setTimeout(resolve, 400))
+  // Navigate to login after async operation
+  await navigateTo('/login')
+}
 
 // State
 const items = ref([

@@ -18,6 +18,16 @@ export default defineNuxtConfig({
     storesDirs: ['./stores'],
   },
 
+  // Components auto-import configuration
+  // Configure to allow using NXTButton from customButtons without prefix
+  components: [
+    {
+      path: '~/components/customButtons',
+      pathPrefix: false, // Use component name without directory prefix
+    },
+    '~/components', // Also scan root components directory
+  ],
+
   // Runtime config
   runtimeConfig: {
     // Private keys (server-side only)

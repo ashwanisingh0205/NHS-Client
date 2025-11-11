@@ -98,6 +98,7 @@ async function handleLogin() {
   const mockToken = 'token_' + Date.now()
   authStore.token = mockToken
   authStore.user = {
+    id: username.value.trim(), // Use username as ID for theme storage
     name: username.value.trim(),
     email: username.value.trim(),
   }
